@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "degree": {
+        "pt": "Negócios Internacionais",
+        "en": "International Business"
+      },
+      "institution": "Pontifícia Universidade Católica do Paraná",
+      "period": "COMPLETAR",
+      "description": {
+        "pt": "Formação acadêmica em Negócios Internacionais pela Pontifícia Universidade Católica do Paraná.",
+        "en": "Academic background in International Business from Pontifícia Universidade Católica do Paraná."
+      },
+      "active": true
+    }
+  ]
+}

@@ -1,28 +1,43 @@
 import { useTranslation } from 'react-i18next';
 import './Sobre.css';
 import profilePlaceholder from '../../assets/profile-placeholder.png';
+import profile from '../../content/profile.json';
+import skillsContent from '../../content/skills.json';
+import experiencesContent from '../../content/experiences.json';
+
+const getLocalizedText = (value, language) => {
+  if (typeof value === 'string') return value;
+  return value?.[language] || value?.pt || '';
+};
 
 function Sobre() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const firstExperience = experiencesContent.items.find((experience) => experience.active !== false);
+  const profileImage = profile.profileImage?.startsWith('/uploads/') ? profile.profileImage : profilePlaceholder;
+  const skills = skillsContent.items.filter((group) => group.active !== false);
 
   return (
     <div className="sobre-container">
       <div className="sobre-imagem">
-        <img src={profilePlaceholder} alt={t('hero_name')} />
+        <img src={profileImage} alt={profile.name} />
       </div>
       <div className="sobre-texto">
-        <h2>{t('about_title')}</h2>
-        <p>{t('about_text')}</p>
+        <h2>{getLocalizedText(profile.aboutTitle, i18n.language)}</h2>
+        <p>{getLocalizedText(profile.about, i18n.language)}</p>
+        {firstExperience && (
+          <p className="experience-summary">
+            <strong>{getLocalizedText(firstExperience.role, i18n.language)}</strong>
+            {' - '}
+            {firstExperience.company}
+            {' | '}
+            {firstExperience.period}
+          </p>
+        )}
         <h3>{t('about_skills_title')}</h3>
         <div className="skills-container">
-          <span className="skill-tag">React</span>
-          <span className="skill-tag">JavaScript</span>
-          <span className="skill-tag">Node.js</span>
-          <span className="skill-tag">CSS</span>
-          <span className="skill-tag">HTML</span>
-          <span className="skill-tag">SQL</span>
-          <span className="skill-tag">Git</span>
-          <span className="skill-tag">Agile Methodologies</span>
+          {skills.flatMap((group) => group.items).map((skill, index) => (
+            <span className="skill-tag" key={`${skill}-${index}`}>{skill}</span>
+          ))}
         </div>
       </div>
     </div>

@@ -1,0 +1,248 @@
+backend:
+  name: github
+  repo: BoarettoFelipe/portifolio-namorada
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+locale: pt
+
+collections:
+  - name: profile
+    label: Perfil
+    format: json
+    files:
+      - name: profile
+        label: Dados principais
+        file: src/content/profile.json
+        fields:
+          - { label: Nome, name: name, widget: string }
+          - label: Headline
+            name: headline
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: string }
+              - { label: Inglês, name: en, widget: string, required: false }
+          - label: Título da seção Sobre
+            name: aboutTitle
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: string }
+              - { label: Inglês, name: en, widget: string, required: false }
+          - label: Bio
+            name: about
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: text }
+              - { label: Inglês, name: en, widget: text, required: false }
+          - { label: Foto de perfil, name: profileImage, widget: image, required: false }
+          - { label: Localização, name: location, widget: string, required: false }
+          - { label: E-mail, name: email, widget: string }
+          - { label: Telefone, name: phone, widget: string, required: false }
+
+  - name: socialLinks
+    label: Links sociais
+    format: json
+    files:
+      - name: socialLinks
+        label: Links sociais
+        file: src/content/socialLinks.json
+        fields:
+          - label: Links
+            name: items
+            widget: list
+            summary: "{{fields.label}} - {{fields.displayText}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - { label: Label, name: label, widget: string }
+              - label: Tipo
+                name: type
+                widget: select
+                options: [linkedin, whatsapp, email]
+              - { label: URL, name: url, widget: string }
+              - { label: Texto exibido, name: displayText, widget: string }
+
+  - name: experiences
+    label: Experiências
+    format: json
+    files:
+      - name: experiences
+        label: Experiências profissionais
+        file: src/content/experiences.json
+        fields:
+          - label: Experiências
+            name: items
+            widget: list
+            summary: "{{fields.company}} - {{fields.period}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - label: Cargo
+                name: role
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+              - { label: Empresa, name: company, widget: string }
+              - { label: Período, name: period, widget: string, required: false }
+              - label: Descrição
+                name: description
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: text }
+                  - { label: Inglês, name: en, widget: text, required: false }
+              - label: Destaques
+                name: highlights
+                widget: list
+                field: { label: Item, name: item, widget: string }
+                required: false
+
+  - name: education
+    label: Formação
+    format: json
+    files:
+      - name: education
+        label: Formação acadêmica
+        file: src/content/education.json
+        fields:
+          - label: Formações
+            name: items
+            widget: list
+            summary: "{{fields.institution}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - label: Curso
+                name: degree
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+              - { label: Instituição, name: institution, widget: string }
+              - { label: Período, name: period, widget: string, required: false }
+              - label: Descrição
+                name: description
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: text, required: false }
+                  - { label: Inglês, name: en, widget: text, required: false }
+
+  - name: skills
+    label: Habilidades
+    format: json
+    files:
+      - name: skills
+        label: Habilidades
+        file: src/content/skills.json
+        fields:
+          - label: Grupos de habilidades
+            name: items
+            widget: list
+            summary: "{{fields.category.pt}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - label: Categoria
+                name: category
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+              - label: Habilidades
+                name: items
+                widget: list
+                field: { label: Habilidade, name: item, widget: string }
+
+  - name: certifications
+    label: Certificados
+    format: json
+    files:
+      - name: certifications
+        label: Certificados
+        file: src/content/certifications.json
+        fields:
+          - label: Certificados
+            name: items
+            widget: list
+            summary: "{{fields.title.pt}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - label: Título
+                name: title
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+              - { label: Emissor, name: issuer, widget: string, required: false }
+              - { label: Data, name: date, widget: string, required: false }
+              - { label: URL, name: url, widget: string, required: false }
+
+  - name: publications
+    label: Publicações e destaques
+    format: json
+    files:
+      - name: publications
+        label: Publicações e destaques
+        file: src/content/publications.json
+        fields:
+          - label: Publicações
+            name: items
+            widget: list
+            summary: "{{fields.title.pt}}"
+            fields:
+              - { label: Ativo, name: active, widget: boolean, default: true, required: false }
+              - label: Título
+                name: title
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+              - label: Descrição
+                name: description
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: text }
+                  - { label: Inglês, name: en, widget: text, required: false }
+              - { label: Fonte, name: source, widget: string, required: false }
+              - { label: Data, name: date, widget: string, required: false }
+              - { label: Imagem, name: image, widget: image, required: false }
+              - label: Tags
+                name: tags
+                widget: list
+                field: { label: Tag, name: tag, widget: string }
+                required: false
+              - { label: URL, name: url, widget: string, required: false }
+              - label: Texto do botão
+                name: ctaLabel
+                widget: object
+                fields:
+                  - { label: Português, name: pt, widget: string }
+                  - { label: Inglês, name: en, widget: string, required: false }
+
+  - name: resume
+    label: Currículo
+    format: json
+    files:
+      - name: resume
+        label: Currículo
+        file: src/content/resume.json
+        fields:
+          - label: Título
+            name: title
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: string }
+              - { label: Inglês, name: en, widget: string, required: false }
+          - label: Introdução
+            name: intro
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: text }
+              - { label: Inglês, name: en, widget: text, required: false }
+          - label: Texto do botão
+            name: downloadLabel
+            widget: object
+            fields:
+              - { label: Português, name: pt, widget: string }
+              - { label: Inglês, name: en, widget: string, required: false }
+          - { label: Nome do arquivo ao baixar, name: downloadFileName, widget: string }
+          - { label: Arquivo PDF, name: pdfFile, widget: file, required: false }
+          - { label: Imagem de prévia, name: previewImage, widget: image, required: false }

@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
+import profile from '../../content/profile.json';
+import socialLinksContent from '../../content/socialLinks.json';
 import './Contato.css';
 
 function Contato() {
@@ -8,6 +10,7 @@ function Contato() {
   const form = useRef();
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState({});
+  const socialLinks = socialLinksContent.items.filter((link) => link.active !== false);
 
   const validateForm = () => {
     const currentErrors = {};
@@ -30,18 +33,18 @@ function Contato() {
       setStatusMessage(t('contact_error_required'));
       return;
     }
-    
+
     setStatusMessage('Enviando...');
 
     emailjs
       .sendForm('service_syddtjc', 'template_aouzz4r', form.current, 'zTL5eoqQygEEHtEDB')
       .then(
-        (result) => {
+        () => {
           setStatusMessage('Mensagem enviada com sucesso!');
           form.current.reset();
           setErrors({});
         },
-        (error) => {
+        () => {
           setStatusMessage('Falha ao enviar. Tente novamente.');
         }
       );
@@ -51,40 +54,48 @@ function Contato() {
     <div className="contato-container">
       <h2>{t('contact_title')}</h2>
       <p>{t('contact_intro')}</p>
+      <div className="contact-links">
+        {socialLinks.map((link) => (
+          <a key={link.type} href={link.url} target={link.type === 'email' ? undefined : '_blank'} rel="noopener noreferrer">
+            {link.label}
+          </a>
+        ))}
+      </div>
       <form ref={form} onSubmit={sendEmail} className="contato-form" noValidate>
         <div className="form-group">
           <label htmlFor="name">{t('contact_name')}</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="from_name" 
-            className={errors.from_name ? 'error' : ''} 
-            required 
+          <input
+            type="text"
+            id="name"
+            name="from_name"
+            className={errors.from_name ? 'error' : ''}
+            required
           />
         </div>
         <div className="form-group">
           <label htmlFor="email">{t('contact_email')}</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="reply_to" 
-            className={errors.reply_to ? 'error' : ''} 
-            required 
+          <input
+            type="email"
+            id="email"
+            name="reply_to"
+            className={errors.reply_to ? 'error' : ''}
+            required
           />
         </div>
         <div className="form-group">
           <label htmlFor="message">{t('contact_message')}</label>
-          <textarea 
-            id="message" 
-            name="message" 
-            rows="6" 
-            className={errors.message ? 'error' : ''} 
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            className={errors.message ? 'error' : ''}
             required
           ></textarea>
         </div>
         <button type="submit" className="submit-button">{t('contact_send_button')}</button>
         {statusMessage && <p className={`status-message ${Object.keys(errors).length > 0 ? 'error-text' : ''}`}>{statusMessage}</p>}
       </form>
+      <p className="contact-direct-email">{profile.email}</p>
     </div>
   );
 }

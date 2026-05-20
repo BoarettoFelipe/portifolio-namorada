@@ -1,0 +1,19 @@
+{
+  "name": "Brenda Wollinger",
+  "headline": {
+    "pt": "Profissional focada em experiências, formação e desenvolvimento de carreira",
+    "en": "Professional focused on experience, education and career development"
+  },
+  "aboutTitle": {
+    "pt": "Sobre Mim",
+    "en": "About Me"
+  },
+  "about": {
+    "pt": "Negócios internacionais",
+    "en": "International business"
+  },
+  "profileImage": "profile-placeholder.png",
+  "location": "Curitiba, Paraná",
+  "email": "academicbcw@gmail.com",
+  "phone": "+55 42 8853-2828"
+}

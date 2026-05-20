@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "label": "LinkedIn",
+      "type": "linkedin",
+      "url": "https://www.linkedin.com/in/brendawollinger/",
+      "displayText": "Brenda Wollinger",
+      "active": true
+    },
+    {
+      "label": "WhatsApp",
+      "type": "whatsapp",
+      "url": "https://wa.me/554288532828",
+      "displayText": "+55 42 8853-2828",
+      "active": true
+    },
+    {
+      "label": "Email",
+      "type": "email",
+      "url": "mailto:academicbcw@gmail.com",
+      "displayText": "academicbcw@gmail.com",
+      "active": true
+    }
+  ]
+}

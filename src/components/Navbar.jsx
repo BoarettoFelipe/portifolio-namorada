@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
+import profile from '../content/profile.json';
 import './Navbar.css';
 
 function Navbar({ changeTheme, currentTheme }) {
@@ -29,10 +30,10 @@ function Navbar({ changeTheme, currentTheme }) {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  
+
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-  }
+  };
 
   return (
     <>
@@ -46,7 +47,7 @@ function Navbar({ changeTheme, currentTheme }) {
         </ul>
 
         <h2 className="navbar-name">
-          <a href="#inicio" onClick={closeMobileMenu}>{t('hero_name')}</a>
+          <a href="#inicio" onClick={closeMobileMenu}>{profile.name}</a>
         </h2>
 
         <div className="navbar-spacer">
@@ -54,19 +55,19 @@ function Navbar({ changeTheme, currentTheme }) {
           <LanguageSwitcher />
         </div>
 
-        <button className="hamburger-button" onClick={toggleMobileMenu}>
+        <button className="hamburger-button" onClick={toggleMobileMenu} aria-label="Abrir menu">
           ☰
         </button>
       </nav>
 
       <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        <button className="close-button" onClick={toggleMobileMenu}>×</button>
+        <button className="close-button" onClick={toggleMobileMenu} aria-label="Fechar menu">×</button>
         <a href="#inicio" onClick={closeMobileMenu}>{t('nav_inicio')}</a>
         <a href="#sobre" onClick={closeMobileMenu}>{t('nav_sobre')}</a>
         <a href="#projetos" onClick={closeMobileMenu}>{t('nav_projetos')}</a>
         <a href="#curriculo" onClick={closeMobileMenu}>{t('nav_curriculo')}</a>
         <a href="#contato" onClick={closeMobileMenu}>{t('nav_contato')}</a>
-        
+
         <div className="mobile-menu-options">
           <ThemeSwitcher changeTheme={changeTheme} currentTheme={currentTheme} />
           <LanguageSwitcher />

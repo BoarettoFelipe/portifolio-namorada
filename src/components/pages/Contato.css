@@ -16,6 +16,26 @@
   margin-bottom: 2rem;
   color: var(--cor-texto-inverso-secundario);
 }
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.contact-links a {
+  background-color: var(--cor-texto-inverso);
+  border-radius: 5px;
+  color: var(--cor-fundo-conteudo);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.contact-links a:hover {
+  background-color: #343a40;
+  transform: translateY(-2px);
+}
 .contato-form .form-group {
   margin-bottom: 1.5rem;
 }
@@ -70,4 +90,8 @@
 }
 .status-message.error-text {
   color: #e74c3c; 
+}
+.contact-direct-email {
+  font-size: 0.95rem;
+  margin: 1.5rem 0 0;
 }

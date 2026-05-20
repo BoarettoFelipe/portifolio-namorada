@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "category": {
+        "pt": "Ferramentas",
+        "en": "Tools"
+      },
+      "items": [
+        "Excel",
+        "Word"
+      ],
+      "active": true
+    }
+  ]
+}

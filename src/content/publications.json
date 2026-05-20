@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "title": {
+        "pt": "Publicação no LinkedIn",
+        "en": "LinkedIn publication"
+      },
+      "description": {
+        "pt": "Destaque profissional publicado no LinkedIn.",
+        "en": "Professional highlight published on LinkedIn."
+      },
+      "source": "LinkedIn",
+      "date": "COMPLETAR",
+      "image": "projeto1.png",
+      "tags": [
+        "LinkedIn",
+        "Negócios internacionais"
+      ],
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7462127134325788672/",
+      "ctaLabel": {
+        "pt": "Ver publicação",
+        "en": "View publication"
+      },
+      "active": true
+    }
+  ]
+}

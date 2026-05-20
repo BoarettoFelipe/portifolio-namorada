@@ -46,6 +46,13 @@
   text-align: justify;
 }
 
+.sobre-texto .experience-summary {
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--cor-texto-inverso);
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
 .sobre-texto h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;

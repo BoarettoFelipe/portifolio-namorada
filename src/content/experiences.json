@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "role": {
+        "pt": "COMPLETAR",
+        "en": "COMPLETAR"
+      },
+      "company": "Rumo",
+      "period": "COMPLETAR",
+      "description": {
+        "pt": "Experiência profissional na Rumo.",
+        "en": "Professional experience at Rumo."
+      },
+      "highlights": [
+        "COMPLETAR"
+      ],
+      "active": true
+    }
+  ]
+}

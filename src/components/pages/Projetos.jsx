@@ -4,46 +4,38 @@ import './Projetos.css';
 import imgProjeto1 from '../../assets/projects/projeto1.png';
 import imgProjeto2 from '../../assets/projects/projeto2.png';
 import imgProjeto3 from '../../assets/projects/projeto3.png';
+import publicationsContent from '../../content/publications.json';
+
+const getLocalizedText = (value, language) => {
+  if (typeof value === 'string') return value;
+  return value?.[language] || value?.pt || '';
+};
+
+const images = {
+  'projeto1.png': imgProjeto1,
+  'projeto2.png': imgProjeto2,
+  'projeto3.png': imgProjeto3
+};
 
 function Projetos() {
-  const { t } = useTranslation();
-
-  const projectsData = [
-    {
-      image: imgProjeto1,
-      title: t('project1_title'),
-      description: t('project1_desc'),
-      techs: ['React', 'Node.js', 'Express', 'MongoDB'],
-      repoLink: '#'
-    },
-    {
-      image: imgProjeto2,
-      title: t('project2_title'),
-      description: t('project2_desc'),
-      techs: ['React', 'API REST', 'CSS Grid'],
-      repoLink: '#'
-    },
-    {
-      image: imgProjeto3,
-      title: t('project3_title'),
-      description: t('project3_desc'),
-      techs: ['Next.js', 'Tailwind CSS', 'GraphQL'],
-      repoLink: '#'
-    }
-  ];
+  const { t, i18n } = useTranslation();
+  const publications = publicationsContent.items.filter((item) => item.active !== false);
 
   return (
     <div className="projetos-container">
       <h2>{t('nav_projetos')}</h2>
       <div className="projects-grid">
-        {projectsData.map((project, index) => (
+        {publications.map((item, index) => (
           <ProjectCard
             key={index}
-            image={project.image}
-            title={project.title}
-            description={project.description}
-            techs={project.techs}
-            repoLink={project.repoLink}
+            image={images[item.image] || item.image || imgProjeto1}
+            title={getLocalizedText(item.title, i18n.language)}
+            description={getLocalizedText(item.description, i18n.language)}
+            tags={item.tags}
+            link={item.url}
+            ctaLabel={getLocalizedText(item.ctaLabel, i18n.language)}
+            source={item.source}
+            date={item.date}
           />
         ))}
       </div>
