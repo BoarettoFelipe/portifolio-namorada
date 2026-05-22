@@ -2,6 +2,7 @@ backend:
   name: github
   repo: BoarettoFelipe/portifolio-namorada
   branch: main
+  base_url: https://auth.decapbridge.com
 
 media_folder: public/uploads
 public_folder: /uploads
