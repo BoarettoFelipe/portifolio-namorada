@@ -1,23 +1,25 @@
 .project-card {
-  background-color: var(--cor-fundo-conteudo);
-  border: 1px solid #e9ecef;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: 14px;
+  box-shadow: 0 12px 34px rgba(20, 20, 18, 0.06);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--cor-acento-suave) 65%, var(--cor-borda));
+  box-shadow: var(--sombra-card-hover);
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  filter: saturate(0.75) contrast(1.02);
 }
 
 .project-info {
@@ -28,40 +30,42 @@
 }
 
 .project-info h3 {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem;
   color: var(--cor-texto-inverso);
+  font-size: 1.35rem;
 }
 
 .project-source {
   display: inline-block;
   margin-bottom: 0.8rem;
   color: var(--cor-texto-inverso-secundario);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.76rem;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .project-info p {
-  margin: 0 0 1rem 0;
-  color: var(--cor-texto-secundario);
-  line-height: 1.5;
+  margin: 0 0 1.25rem;
+  color: var(--cor-texto-inverso-secundario);
+  line-height: 1.65;
   flex-grow: 1;
 }
 
 .project-techs {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .tech-tag {
-  background-color: #f1f1f1; 
+  background-color: color-mix(in srgb, var(--cor-acento-suave) 16%, transparent);
   color: var(--cor-texto-inverso-secundario);
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 1px solid var(--cor-borda);
 }
 
 .project-links {
@@ -71,28 +75,30 @@
 }
 
 .btn {
-  padding: 0.6rem 1.2rem;
+  padding: 0.72rem 1.1rem;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 999px;
+  font-weight: 800;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .btn-primary {
-  background-color: var(--cor-texto-inverso); /* Botão PRETO */
-  color: var(--cor-fundo-conteudo); /* Texto BRANCO */
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo-principal);
+  border: 1px solid var(--cor-destaque);
 }
 
 .btn-primary:hover {
-  background-color: #343a40; 
-  border-color: #343a40;
+  background-color: transparent;
+  color: var(--cor-texto-inverso);
 }
 
 .btn-secondary {
   color: var(--cor-texto-inverso);
-  border: 2px solid var(--cor-texto-inverso);
+  border: 1px solid var(--cor-borda);
 }
+
 .btn-secondary:hover {
   background-color: var(--cor-texto-inverso);
   color: var(--cor-fundo-conteudo);
@@ -100,10 +106,10 @@
 
 .btn-disabled {
   cursor: default;
-  opacity: 0.65;
+  opacity: 0.6;
 }
 
 .btn-disabled:hover {
-  background-color: var(--cor-texto-inverso);
-  border-color: var(--cor-texto-inverso);
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo-principal);
 }

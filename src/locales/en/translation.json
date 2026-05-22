@@ -11,9 +11,9 @@
   "contact_email": "Email",
   "contact_message": "Message",
   "contact_send_button": "Send Message",
-  "themes_label": "Themes",
-  "theme_deep_space": "Deep Space",
-  "theme_mono_gray": "Mono Gray",
+  "themes_label": "Theme",
+  "theme_light": "Light",
+  "theme_dark": "Dark",
   "contact_error_required": "Please fill in all required fields.",
-  "hero_hint": "Hint: Use the buttons in the top right corner to change the theme and language!"
+  "hero_hint": "Hint: use the buttons in the top right corner to change the theme and language!"
 }

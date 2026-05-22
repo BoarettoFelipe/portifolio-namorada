@@ -1,11 +1,39 @@
 .hero-container {
-  height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   position: relative;
+  overflow: hidden;
+  padding: 7rem 1.5rem 4rem;
+}
+
+.hero-container::before {
+  content: '';
+  position: absolute;
+  inset: 10% 7%;
+  border: 1px solid var(--cor-borda);
+  border-radius: 48px;
+  background:
+    linear-gradient(125deg, transparent 0 34%, rgba(120, 120, 112, 0.16) 34.1%, transparent 34.4%),
+    linear-gradient(32deg, transparent 0 58%, rgba(120, 120, 112, 0.13) 58.1%, transparent 58.4%),
+    radial-gradient(circle at 18% 64%, var(--cor-acento-suave) 0 3px, transparent 4px),
+    radial-gradient(circle at 53% 35%, var(--cor-acento-suave) 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 55%, var(--cor-acento-suave) 0 3px, transparent 4px);
+  opacity: 0.55;
+}
+
+.hero-container::after {
+  content: 'GLOBAL TRADE  |  CURITIBA  |  LINKEDIN';
+  position: absolute;
+  bottom: 7rem;
+  color: var(--cor-texto-secundario);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  opacity: 0.5;
 }
 
 .hero-main-content {
@@ -13,24 +41,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 920px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-name {
-  font-size: 3.5rem;
-  font-weight: 900;
-  letter-spacing: -2px;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0;
   color: var(--cor-texto-principal);
   opacity: 1;
-  transition: opacity 0.4s ease-in-out;
-  text-shadow: -2px -2px 0 var(--cor-fundo-principal), 2px -2px 0 var(--cor-fundo-principal), -2px 2px 0 var(--cor-fundo-principal), 2px 2px 0 var(--cor-fundo-principal);
-  margin-bottom: 0;
+  transition: opacity 0.35s ease;
+  margin: 0;
+  line-height: 0.95;
 }
 
 .hero-container p {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  margin: 1.4rem 0 0;
   color: var(--cor-texto-secundario);
-  text-shadow: -1px -1px 0 var(--cor-fundo-principal), 1px -1px 0 var(--cor-fundo-principal), -1px 1px 0 var(--cor-fundo-principal), 1px 1px 0 var(--cor-fundo-principal);
+  max-width: 720px;
+  line-height: 1.7;
 }
 
 .scrolled-past-hero .hero-name {
@@ -38,9 +70,9 @@
 }
 
 .hero-links {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .social-link-wrapper {
@@ -51,18 +83,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  background-color: var(--cor-fundo-secundario);
+  width: 52px;
+  height: 52px;
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
   border-radius: 50%;
   color: var(--cor-texto-principal);
-  transition: all 0.3s ease;
+  box-shadow: 0 14px 36px rgba(20, 20, 18, 0.08);
+  transition: all 0.25s ease;
 }
 
 .social-link:hover {
   background-color: var(--cor-destaque);
+  border-color: var(--cor-destaque);
   color: var(--cor-fundo-principal);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .tooltip {
@@ -72,14 +107,14 @@
   transform: translateX(-50%);
   background-color: var(--cor-destaque);
   color: var(--cor-fundo-principal);
-  padding: 0.4rem 0.8rem;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  font-weight: bold;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
   white-space: nowrap;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
   user-select: text;
 }
 
@@ -93,11 +128,11 @@
   bottom: 2rem;
   width: 100%;
   text-align: center;
-  font-size: 0.2rem;
+  z-index: 1;
 }
 
 .hero-hint .hero-hint-text {
-  font-size: 0.9rem; 
+  font-size: 0.85rem;
   color: var(--cor-texto-secundario);
   opacity: 0;
   animation: fadeInOut 5s infinite;
@@ -105,18 +140,23 @@
 
 @keyframes fadeInOut {
   0% { opacity: 0; }
-  20% { opacity: 0.7; }
-  80% { opacity: 0.7; }
+  20% { opacity: 0.65; }
+  80% { opacity: 0.65; }
   100% { opacity: 0; }
 }
 
 @media (max-width: 768px) {
-  .hero-name {
-    font-size: 2.5rem;
-    letter-spacing: -1px;
+  .hero-container {
+    padding: 6rem 1.25rem 4rem;
   }
-  .hero-container p {
-    font-size: 1.1rem;
-    padding: 0 1rem;
+
+  .hero-container::before {
+    inset: 12% 1rem;
+    border-radius: 28px;
+  }
+
+  .hero-container::after {
+    bottom: 6rem;
+    font-size: 0.62rem;
   }
 }

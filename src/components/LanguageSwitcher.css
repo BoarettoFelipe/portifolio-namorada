@@ -2,61 +2,73 @@
   position: relative;
   display: inline-block;
 }
+
 .dropdown-button {
-  background: transparent;
-  border: none;
-  color: var(--cor-texto-secundario);
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  display: flex;
   align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  color: var(--cor-texto-secundario);
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
   gap: 0.5rem;
+  padding: 0.48rem 0.9rem;
+  transition: all 0.25s ease;
 }
+
 .dropdown-button:hover {
   color: var(--cor-destaque);
+  border-color: var(--cor-acento-suave);
 }
+
 .arrow-icon {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid var(--cor-texto-secundario);
-  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--cor-texto-secundario);
+  transition: all 0.25s ease;
 }
+
 .dropdown-button:hover .arrow-icon {
   border-top-color: var(--cor-destaque);
 }
+
 .arrow-icon.open {
   transform: rotate(180deg);
 }
+
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 8px);
   right: 0;
-  background-color: var(--cor-fundo-secundario);
-  border-radius: 5px;
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
   overflow: hidden;
   z-index: 1002;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--sombra-card);
 }
+
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   background: none;
   border: none;
   color: var(--cor-texto-secundario);
   text-align: left;
   cursor: pointer;
+  font-weight: 700;
 }
+
 .dropdown-item:hover {
   background-color: var(--cor-fundo-principal);
   color: var(--cor-destaque);
 }
+
 .mobile-menu .dropdown-menu {
   top: auto;
-  bottom: calc(100% + 5px);
+  bottom: calc(100% + 8px);
 }

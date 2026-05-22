@@ -7,7 +7,7 @@ const ThemeSwitcher = ({ changeTheme, currentTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const themes = ['dark', 'gray'];
+  const themes = ['light', 'dark'];
 
   const handleThemeChange = (theme) => {
     changeTheme(theme);
@@ -41,7 +41,7 @@ const ThemeSwitcher = ({ changeTheme, currentTheme }) => {
               className={`theme-dropdown-item ${currentTheme === themeKey ? 'active' : ''}`}
               onClick={() => handleThemeChange(themeKey)}
             >
-              {themeKey === 'dark' ? t('theme_deep_space') : t('theme_mono_gray')}
+              {themeKey === 'dark' ? t('theme_dark') : t('theme_light')}
             </button>
           ))}
         </div>

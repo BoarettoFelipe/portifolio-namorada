@@ -11,9 +11,9 @@
   "contact_email": "Email",
   "contact_message": "Mensagem",
   "contact_send_button": "Enviar Mensagem",
-  "themes_label": "Temas",
-  "theme_deep_space": "Deep Space",
-  "theme_mono_gray": "Mono Gray",
+  "themes_label": "Tema",
+  "theme_light": "Claro",
+  "theme_dark": "Escuro",
   "contact_error_required": "Por favor, preencha todos os campos obrigatórios.",
-  "hero_hint": "Dica: Use os botões no canto superior direito para alterar o tema e o idioma!"
+  "hero_hint": "Dica: use os botões no canto superior direito para alterar o tema e o idioma!"
 }

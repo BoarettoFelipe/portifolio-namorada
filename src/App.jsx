@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import FlowingBackground from './components/FlowingBackground';
 import Navbar from './components/Navbar';
 import Inicio from './components/pages/Inicio';
 import Sobre from './components/pages/Sobre';
@@ -10,7 +9,10 @@ import './App.css';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark' ? 'dark' : 'light';
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +33,6 @@ function App() {
 
   return (
     <div className={isScrolled ? 'scrolled-past-hero' : ''}>
-      {theme === 'dark' && <FlowingBackground />}
-      
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
       
       <section id="inicio">

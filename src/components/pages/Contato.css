@@ -1,21 +1,27 @@
 .contato-container {
   background-color: var(--cor-fundo-conteudo);
-  border-radius: 20px;
-  padding: 3rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 18px;
+  padding: 3.5rem;
+  box-shadow: var(--sombra-card);
+  max-width: 760px;
   margin: 0 auto;
+  backdrop-filter: blur(18px);
 }
+
 .contato-container h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   color: var(--cor-texto-inverso);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
 }
+
 .contato-container p {
   text-align: center;
   margin-bottom: 2rem;
   color: var(--cor-texto-inverso-secundario);
 }
+
 .contact-links {
   display: flex;
   justify-content: center;
@@ -23,75 +29,98 @@
   gap: 0.75rem;
   margin-bottom: 2rem;
 }
+
 .contact-links a {
-  background-color: var(--cor-texto-inverso);
-  border-radius: 5px;
-  color: var(--cor-fundo-conteudo);
-  font-weight: bold;
-  padding: 0.5rem 1rem;
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  color: var(--cor-texto-inverso);
+  font-weight: 800;
+  padding: 0.58rem 1rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
+
 .contact-links a:hover {
-  background-color: #343a40;
+  background-color: var(--cor-destaque);
+  border-color: var(--cor-destaque);
+  color: var(--cor-fundo-principal);
   transform: translateY(-2px);
 }
+
 .contato-form .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
+
 .contato-form label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 800;
   color: var(--cor-texto-inverso);
 }
+
 .contato-form input,
 .contato-form textarea {
   width: 100%;
-  padding: 0.8rem;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  background-color: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
   font-size: 1rem;
   color: var(--cor-texto-inverso);
   box-sizing: border-box;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
+
 .contato-form input:focus,
 .contato-form textarea:focus {
   outline: none;
-  border-color: var(--cor-destaque);
+  border-color: var(--cor-acento-suave);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--cor-acento-suave) 18%, transparent);
 }
+
 .contato-form input.error,
 .contato-form textarea.error {
-  border-color: #e74c3c; /* Vermelho para o erro */
+  border-color: #b94747;
 }
+
 .submit-button {
   width: 100%;
   padding: 1rem;
-  background-color: var(--cor-texto-inverso);
-  color: var(--cor-fundo-conteudo);
-  border: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  background-color: var(--cor-destaque);
+  color: var(--cor-fundo-principal);
+  border: 1px solid var(--cor-destaque);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
+
 .submit-button:hover {
-  background-color: #343a40;
+  background-color: transparent;
+  color: var(--cor-texto-inverso);
   transform: translateY(-2px);
 }
+
 .status-message {
   text-align: center;
   margin-top: 1rem;
-  font-weight: bold;
+  font-weight: 800;
   color: var(--cor-texto-inverso);
 }
+
 .status-message.error-text {
-  color: #e74c3c; 
+  color: #b94747;
 }
+
 .contact-direct-email {
   font-size: 0.95rem;
   margin: 1.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .contato-container {
+    padding: 2rem;
+  }
 }
