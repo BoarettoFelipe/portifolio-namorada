@@ -2,7 +2,7 @@ backend:
   name: github
   repo: BoarettoFelipe/portifolio-namorada
   branch: main
-  base_url: https://portifolio-namorada.vercel.app
+  base_url: https://brendawollinger.vercel.app
   auth_endpoint: api/auth
 
 media_folder: public/uploads
