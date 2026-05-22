@@ -37,7 +37,7 @@ function Contato() {
     setStatusMessage('Enviando...');
 
     emailjs
-      .sendForm('service_syddtjc', 'template_aouzz4r', form.current, 'zTL5eoqQygEEHtEDB')
+      .sendForm('service_nt26cvj', 'template_aouzz4r', form.current, 'zTL5eoqQygEEHtEDB')
       .then(
         () => {
           setStatusMessage('Mensagem enviada com sucesso!');
