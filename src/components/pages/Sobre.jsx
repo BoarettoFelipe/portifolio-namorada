@@ -12,9 +12,9 @@ const getLocalizedText = (value, language) => {
 
 function Sobre() {
   const { t, i18n } = useTranslation();
-  const firstExperience = experiencesContent.items.find((experience) => experience.active !== false);
+  const firstExperience = (experiencesContent.items || []).find((experience) => experience.active !== false);
   const profileImage = profile.profileImage?.startsWith('/uploads/') ? profile.profileImage : profilePlaceholder;
-  const skills = skillsContent.items.filter((group) => group.active !== false);
+  const skills = (skillsContent.items || []).filter((group) => group.active !== false);
 
   return (
     <div className="sobre-container">
@@ -35,7 +35,7 @@ function Sobre() {
         )}
         <h3>{t('about_skills_title')}</h3>
         <div className="skills-container">
-          {skills.flatMap((group) => group.items).map((skill, index) => (
+          {skills.flatMap((group) => group.items || []).map((skill, index) => (
             <span className="skill-tag" key={`${skill}-${index}`}>{skill}</span>
           ))}
         </div>

@@ -39,7 +39,7 @@ const SocialIcon = ({ type }) => {
 function Inicio() {
   const { i18n } = useTranslation();
   const [hintLang, setHintLang] = useState('pt');
-  const socialLinks = socialLinksContent.items.filter((link) => link.active !== false);
+  const socialLinks = (socialLinksContent.items || []).filter((link) => link.active !== false);
 
   const hints = {
     pt: 'Dica: Use os botões no canto superior direito para alterar o tema e o idioma!',

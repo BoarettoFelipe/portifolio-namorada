@@ -10,7 +10,7 @@ function Contato() {
   const form = useRef();
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState({});
-  const socialLinks = socialLinksContent.items.filter((link) => link.active !== false);
+  const socialLinks = (socialLinksContent.items || []).filter((link) => link.active !== false);
 
   const validateForm = () => {
     const currentErrors = {};

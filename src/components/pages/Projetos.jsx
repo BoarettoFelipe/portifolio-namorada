@@ -19,7 +19,7 @@ const images = {
 
 function Projetos() {
   const { t, i18n } = useTranslation();
-  const publications = publicationsContent.items.filter((item) => item.active !== false);
+  const publications = (publicationsContent.items || []).filter((item) => item.active !== false);
 
   return (
     <div className="projetos-container">
@@ -28,14 +28,14 @@ function Projetos() {
         {publications.map((item, index) => (
           <ProjectCard
             key={index}
-            image={images[item.image] || item.image || imgProjeto1}
+            image={images[item?.image] || item?.image || imgProjeto1}
             title={getLocalizedText(item.title, i18n.language)}
             description={getLocalizedText(item.description, i18n.language)}
-            tags={item.tags}
-            link={item.url}
+            tags={item.tags || []}
+            link={item.url || ''}
             ctaLabel={getLocalizedText(item.ctaLabel, i18n.language)}
-            source={item.source}
-            date={item.date}
+            source={item.source || ''}
+            date={item.date || ''}
           />
         ))}
       </div>
