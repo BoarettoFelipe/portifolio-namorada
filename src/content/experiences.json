@@ -2,19 +2,32 @@
   "items": [
     {
       "role": {
-        "pt": "Estagiária do Sexo",
-        "en": "Sex Trainee"
+        "pt": "Estagiária na Área Comercial",
+        "en": "Commercial Intern"
       },
-      "company": "Rumo",
-      "period": "April 2025",
+      "company": "Rumo Logística - Malha Sul",
+      "period": "April 2025 – Present",
       "description": {
-        "pt": "Experiência profissional na Rumo.",
-        "en": "Professional experience at Rumo."
+        "pt": "Atuação na área comercial da Rumo Logística, acompanhando operações ligadas ao transporte ferroviário e à dinâmica logística de grandes cadeias produtivas. Experiência com indicadores, gestão à vista e análise operacional utilizando Excel e Power BI como apoio à tomada de decisão.",
+        "en": "Working in the commercial area at Rumo Logística, supporting railway transportation operations and logistics dynamics related to large supply chains. Experience with KPI monitoring, operational analysis and management tools using Excel and Power BI."
       },
       "highlights": [
         "COMPLETAR"
       ],
       "active": true
+    },
+    {
+      "active": true,
+      "role": {
+        "pt": "Pesquisadora PIBIC – Impactos Econômicos e Sociais da Inteligência Artificial na Competição Global",
+        "en": "PIBIC Researcher – Economic and Social Impacts of Artificial Intelligence on Global Competition"
+      },
+      "period": "August 2025 – Present",
+      "description": {
+        "pt": "Desenvolvimento de pesquisa sobre os impactos econômicos e sociais da inteligência artificial na competição global, analisando como tecnologia, geopolítica e inovação influenciam as relações internacionais e o cenário econômico contemporâneo.",
+        "en": "Research focused on the economic and social impacts of artificial intelligence on global competition, analyzing how technology, geopolitics and innovation influence international relations and the contemporary economic landscape."
+      },
+      "company": "PUCPR"
     }
   ]
 }
