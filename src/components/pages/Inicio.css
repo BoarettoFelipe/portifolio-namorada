@@ -8,6 +8,11 @@
   position: relative;
   overflow: hidden;
   padding: 7rem 1.5rem 4rem;
+  isolation: isolate;
+  background:
+    linear-gradient(125deg, rgba(200, 189, 163, 0.12), transparent 38%),
+    radial-gradient(circle at 78% 22%, rgba(120, 120, 112, 0.12), transparent 34%),
+    var(--cor-fundo-principal);
 }
 
 .hero-container::before {
@@ -22,7 +27,56 @@
     radial-gradient(circle at 18% 64%, var(--cor-acento-suave) 0 3px, transparent 4px),
     radial-gradient(circle at 53% 35%, var(--cor-acento-suave) 0 3px, transparent 4px),
     radial-gradient(circle at 80% 55%, var(--cor-acento-suave) 0 3px, transparent 4px);
-  opacity: 0.55;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  background:
+    linear-gradient(125deg, rgba(200, 189, 163, 0.12), transparent 38%),
+    radial-gradient(circle at 78% 22%, rgba(120, 120, 112, 0.12), transparent 34%),
+    var(--cor-fundo-principal);
+}
+
+.hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--section-transition-bg) 82%, transparent) 62%, var(--section-transition-bg) 100%) bottom / 100% 280px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--cor-fundo-principal) 42%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 18%, transparent) 48%, color-mix(in srgb, var(--cor-fundo-principal) 46%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--cor-fundo-principal) 34%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 58%, transparent));
+  pointer-events: none;
+}
+
+[data-theme='dark'] .hero-media::after {
+  background:
+    linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--section-transition-bg) 72%, transparent) 58%, var(--section-transition-bg) 100%) bottom / 100% 280px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--cor-fundo-principal) 58%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 34%, transparent) 48%, color-mix(in srgb, var(--cor-fundo-principal) 62%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--cor-fundo-principal) 44%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 72%, transparent));
+}
+
+.hero-media video {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.82;
+  filter: grayscale(0.08) saturate(0.82) contrast(1.04) brightness(0.96);
+  transform: scale(1.01);
+}
+
+[data-theme='dark'] .hero-media video {
+  opacity: 0.62;
+  filter: grayscale(0.14) saturate(0.72) contrast(1.02) brightness(0.62);
 }
 
 .hero-container::after {
@@ -34,6 +88,8 @@
   font-weight: 800;
   letter-spacing: 0.18em;
   opacity: 0.5;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hero-main-content {
@@ -43,7 +99,15 @@
   justify-content: center;
   max-width: 920px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  padding: 2.4rem;
+  border-radius: 28px;
+  background-color: color-mix(in srgb, var(--cor-fundo-principal) 30%, transparent);
+  backdrop-filter: blur(1px);
+}
+
+[data-theme='dark'] .hero-main-content {
+  background-color: color-mix(in srgb, var(--cor-fundo-principal) 42%, transparent);
 }
 
 .hero-name {
@@ -128,7 +192,7 @@
   bottom: 2rem;
   width: 100%;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-hint .hero-hint-text {
@@ -153,10 +217,27 @@
   .hero-container::before {
     inset: 12% 1rem;
     border-radius: 28px;
+    opacity: 0.08;
   }
 
   .hero-container::after {
     bottom: 6rem;
     font-size: 0.62rem;
+  }
+
+  .hero-media::after {
+    background:
+      linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--section-transition-bg) 82%, transparent) 58%, var(--section-transition-bg) 100%) bottom / 100% 220px no-repeat,
+      linear-gradient(90deg, color-mix(in srgb, var(--cor-fundo-principal) 48%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 36%, transparent)),
+      linear-gradient(180deg, color-mix(in srgb, var(--cor-fundo-principal) 40%, transparent), color-mix(in srgb, var(--cor-fundo-principal) 68%, transparent));
+  }
+
+  .hero-media video {
+    object-position: center;
+    opacity: 0.66;
+  }
+
+  .hero-main-content {
+    padding: 1.5rem;
   }
 }

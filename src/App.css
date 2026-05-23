@@ -6,6 +6,7 @@
   padding: 6rem 2rem;
   box-sizing: border-box;
   position: relative;
+  background-color: var(--section-transition-bg);
 }
 
 .full-page-section::before {

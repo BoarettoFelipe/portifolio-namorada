@@ -56,6 +56,11 @@ function Inicio() {
 
   return (
     <div className="hero-container">
+      <div className="hero-media" aria-hidden="true">
+        <video autoPlay muted loop playsInline preload="metadata">
+          <source src="/media/hero-global-trade.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className="hero-main-content">
         <h2 className="hero-name">{profile.name}</h2>
         <p>{getLocalizedText(profile.headline, i18n.language)}</p>
