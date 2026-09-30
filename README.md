@@ -16,6 +16,20 @@ O site reúne perfil profissional, experiências, habilidades, publicações e d
 - Formulário de contato integrado ao EmailJS.
 - Visualização e download do currículo em PDF.
 
+## Screenshots
+
+**Página inicial**
+
+![Página inicial](docs/screenshots/home.png)
+
+**Conteúdo do portfólio**
+
+![Conteúdo do portfólio](docs/screenshots/content.png)
+
+**Painel administrativo**
+
+![Painel administrativo](docs/screenshots/admin.png)
+
 ## Arquitetura de conteúdo
 
 Os dados editáveis ficam em `src/content/`, separados por assunto. A configuração em `public/admin/config.yml` associa esses arquivos às coleções do Decap CMS. Ao salvar alterações pela interface administrativa, o backend GitHub configurado no CMS persiste o conteúdo no repositório. Os arquivos enviados pelo painel usam `public/uploads/`.
